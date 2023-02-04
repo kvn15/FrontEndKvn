@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { Error404Component } from './error404/error404.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AppRoutingModule } from '../app-routing.module';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -20,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    AppRoutingModule
   ],
   exports: [
     HeaderComponent,

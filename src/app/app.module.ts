@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ModulesModule } from './modules/modules.module';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
+import { JWTInterceptor } from './auth/security/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { UsuariosModule } from './modules/usuarios/usuarios.module';
     AuthModule,
     ModulesModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

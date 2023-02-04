@@ -6,11 +6,11 @@ import { AuthGuard } from 'src/app/auth/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'usuario',
+    path: 'system',
     component: ModulesComponent,
     canActivate: [AuthGuard],
     children: [
-      {path: '', component: UserSistemaComponent, pathMatch: 'full'},
+      {path: 'usuario', component: UserSistemaComponent, pathMatch: 'full'},
       {
         path: 'user-sistema',
         component: UserSistemaComponent

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _route:Router, private _fb: FormBuilder, private _service: AuthService,private toastr: ToastrService) {
     if(localStorage.getItem('token')){
-      this._route.navigate(['/usuario'])
+      this._route.navigate(['/system/usuario'])
     }
   }
 
@@ -49,9 +49,9 @@ export class LoginComponent implements OnInit {
         }).then((result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
-            this._route.navigate(['/usuario'])
+            this._route.navigate(['/system/usuario'])
           }else{
-            this._route.navigate(['/usuario'])
+            this._route.navigate(['/system/usuario'])
           }
         })
       }else{
